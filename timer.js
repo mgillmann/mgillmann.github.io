@@ -1,5 +1,5 @@
 
-var target_date = new Date("Nov 30, 2018 16:00:00").getTime() + (1000*3600*48); // set the countdown date
+var target_date = new Date("Nov 30, 2018 16:00:00").getTime(); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 
 var countdown = document.getElementById("tiles"); // get tag element
@@ -11,7 +11,7 @@ setInterval(function () { getCountdown(); }, 1000);
 function getCountdown(){
 
     // find the amount of "seconds" between now and target
-    var current_date = new Date().getTime();
+    var current_date = Date.now();
     var seconds_left = (target_date - current_date) / 1000;
 
     days = pad( parseInt(seconds_left / 86400) );
