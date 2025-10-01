@@ -228,8 +228,9 @@
                                 <li>• <strong>Location:</strong> Center-right of window wall</li>
                                 <li>• <strong>Dimensions:</strong> 72" wide × 22" deep</li>
                                 <li>• <strong>Sinks:</strong> Dual undermount, 18" from each end</li>
-                                <li>• <strong>Window:</strong> Centered between sinks for symmetry</li>
-                                <li>• <strong>Storage:</strong> Drawers below, medicine cabinets above</li>
+                                <li>• <strong>Window:</strong> Above vanity backsplash (NOT blocked by mirrors)</li>
+                                <li>• <strong>Mirrors:</strong> Mounted on sides of window or above counter</li>
+                                <li>• <strong>Storage:</strong> Drawers below, open shelving or side cabinets</li>
                                 <li>• <strong>Clearance:</strong> 30" in front for easy access</li>
                             </ul>
                         </div>
@@ -281,6 +282,343 @@
                             <li>✓ GFCI outlets required near water sources</li>
                             <li>✓ Ventilation: 80+ CFM exhaust fan or operable window</li>
                         </ul>
+                    </div>
+
+                    {/* Realistic Bathroom Rendering */}
+                    <div className="mt-8 bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-xl shadow-2xl">
+                        <h2 className="text-3xl font-bold mb-3 text-white">Realistic Design Rendering</h2>
+                        <p className="text-slate-300 mb-6 text-lg">Photorealistic visualization of your remodeled bathroom</p>
+
+                        <div className="bg-white p-4 rounded-lg shadow-xl">
+                            <svg viewBox="0 0 1200 800" className="w-full rounded-lg">
+                                <defs>
+                                    {/* Realistic gradients and textures */}
+                                    <linearGradient id="floorTile" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="#e8e8e8" />
+                                        <stop offset="50%" stopColor="#f5f5f5" />
+                                        <stop offset="100%" stopColor="#e0e0e0" />
+                                    </linearGradient>
+                                    <linearGradient id="woodVanity" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#c9a876" />
+                                        <stop offset="30%" stopColor="#b8956a" />
+                                        <stop offset="70%" stopColor="#a88c60" />
+                                        <stop offset="100%" stopColor="#8b6f47" />
+                                    </linearGradient>
+                                    <linearGradient id="quartzCounter" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="#ffffff" />
+                                        <stop offset="25%" stopColor="#fafafa" />
+                                        <stop offset="75%" stopColor="#f8f8f8" />
+                                        <stop offset="100%" stopColor="#f0f0f0" />
+                                    </linearGradient>
+                                    <linearGradient id="glassPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="#e3f2fd" stopOpacity="0.3" />
+                                        <stop offset="50%" stopColor="#90caf9" stopOpacity="0.2" />
+                                        <stop offset="100%" stopColor="#bbdefb" stopOpacity="0.25" />
+                                    </linearGradient>
+                                    <radialGradient id="windowLight">
+                                        <stop offset="0%" stopColor="#fff9e6" stopOpacity="0.9" />
+                                        <stop offset="50%" stopColor="#fffbf0" stopOpacity="0.5" />
+                                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+                                    </radialGradient>
+                                    <linearGradient id="wallPaint" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#f5f5f5" />
+                                        <stop offset="100%" stopColor="#e8e8e8" />
+                                    </linearGradient>
+                                    <pattern id="tileGrout" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+                                        <rect width="50" height="50" fill="url(#floorTile)"/>
+                                        <rect width="48" height="48" x="1" y="1" fill="#f8f8f8"/>
+                                    </pattern>
+                                </defs>
+
+                                {/* Background - main wall */}
+                                <rect x="0" y="0" width="1200" height="500" fill="url(#wallPaint)"/>
+
+                                {/* Floor with realistic tile pattern */}
+                                <rect x="0" y="500" width="1200" height="300" fill="url(#tileGrout)"/>
+
+                                {/* Window on back wall - natural light source */}
+                                <g>
+                                    {/* Window frame */}
+                                    <rect x="480" y="80" width="240" height="180" fill="#87CEEB" stroke="#4a4a4a" strokeWidth="6"/>
+                                    {/* Window panes */}
+                                    <line x1="600" y1="80" x2="600" y2="260" stroke="#4a4a4a" strokeWidth="4"/>
+                                    <line x1="480" y1="170" x2="720" y2="170" stroke="#4a4a4a" strokeWidth="4"/>
+                                    {/* Glass reflection */}
+                                    <rect x="484" y="84" width="112" height="82" fill="#ffffff" opacity="0.3"/>
+                                    <rect x="604" y="84" width="112" height="82" fill="#ffffff" opacity="0.2"/>
+                                    {/* Natural light glow */}
+                                    <ellipse cx="600" cy="170" rx="300" ry="280" fill="url(#windowLight)"/>
+                                    {/* Window sill */}
+                                    <rect x="470" y="260" width="260" height="20" fill="#d0d0d0" stroke="#999" strokeWidth="2"/>
+                                </g>
+
+                                {/* Left side - Walk-in Shower */}
+                                <g>
+                                    {/* Shower floor - tiled */}
+                                    <rect x="50" y="520" width="300" height="220" fill="#e0e0e0" stroke="#bbb" strokeWidth="2"/>
+
+                                    {/* Tile lines in shower floor */}
+                                    {Array.from({length: 6}, (_, i) => (
+                                        <line key={`shower-h-${i}`} x1="50" y1={540 + i * 40} x2="350" y2={540 + i * 40} stroke="#ccc" strokeWidth="1.5"/>
+                                    ))}
+                                    {Array.from({length: 8}, (_, i) => (
+                                        <line key={`shower-v-${i}`} x1={80 + i * 40} y1="520" x2={80 + i * 40} y2="740" stroke="#ccc" strokeWidth="1.5"/>
+                                    ))}
+
+                                    {/* Half wall (knee wall) - tiled */}
+                                    <rect x="50" y="360" width="300" height="160" fill="#888" stroke="#666" strokeWidth="3"/>
+                                    {/* Half wall tile detail */}
+                                    {Array.from({length: 4}, (_, i) => (
+                                        <line key={`wall-tile-${i}`} x1="50" y1={390 + i * 40} x2="350" y2={390 + i * 40} stroke="#777" strokeWidth="1"/>
+                                    ))}
+
+                                    {/* Glass panel above half wall */}
+                                    <rect x="50" y="180" width="300" height="180" fill="url(#glassPanel)" stroke="#42a5f5" strokeWidth="4" opacity="0.8"/>
+                                    {/* Glass shine/reflection */}
+                                    <rect x="55" y="185" width="80" height="160" fill="#ffffff" opacity="0.15"/>
+
+                                    {/* Shower fixtures */}
+                                    <g>
+                                        {/* Shower pipe */}
+                                        <rect x="140" y="190" width="8" height="120" fill="#c0c0c0" stroke="#999" strokeWidth="1"/>
+                                        {/* Shower head */}
+                                        <ellipse cx="144" cy="310" rx="20" ry="10" fill="#a8a8a8" stroke="#888" strokeWidth="2"/>
+                                        <ellipse cx="144" cy="308" rx="16" ry="8" fill="#d0d0d0"/>
+                                        {/* Water spray */}
+                                        {Array.from({length: 25}, (_, i) => (
+                                            <line
+                                                key={`spray-${i}`}
+                                                x1={134 + Math.random() * 20}
+                                                y1={320}
+                                                x2={120 + Math.random() * 48}
+                                                y2={450 + Math.random() * 60}
+                                                stroke="#64b5f6"
+                                                strokeWidth="2"
+                                                opacity={0.4 + Math.random() * 0.3}
+                                            />
+                                        ))}
+                                        {/* Control valve */}
+                                        <circle cx="280" cy="420" r="18" fill="#c0c0c0" stroke="#888" strokeWidth="2"/>
+                                        <circle cx="280" cy="420" r="12" fill="#e0e0e0"/>
+                                    </g>
+
+                                    {/* Shower niche */}
+                                    <rect x="240" y="280" width="90" height="60" fill="#d8d8d8" stroke="#aaa" strokeWidth="2"/>
+                                    <rect x="245" y="285" width="80" height="50" fill="#e8e8e8"/>
+                                    {/* Bottles in niche */}
+                                    <rect x="255" y="305" width="15" height="25" fill="#90caf9" stroke="#64b5f6" strokeWidth="1" rx="2"/>
+                                    <rect x="275" y="300" width="15" height="30" fill="#fff9c4" stroke="#f9a825" strokeWidth="1" rx="2"/>
+                                    <rect x="295" y="308" width="15" height="22" fill="#c5e1a5" stroke="#8bc34a" strokeWidth="1" rx="2"/>
+                                </g>
+
+                                {/* Center - Double Vanity under window */}
+                                <g>
+                                    {/* Vanity cabinet body */}
+                                    <rect x="400" y="520" width="480" height="180" fill="url(#woodVanity)" stroke="#6d5839" strokeWidth="3"/>
+
+                                    {/* Wood grain effect */}
+                                    {Array.from({length: 8}, (_, i) => (
+                                        <line key={`grain-${i}`} x1="400" y1={540 + i * 20} x2="880" y2={540 + i * 20} stroke="#8b6f47" strokeWidth="0.5" opacity="0.3"/>
+                                    ))}
+
+                                    {/* Countertop - quartz */}
+                                    <rect x="390" y="500" width="500" height="20" fill="url(#quartzCounter)" stroke="#d0d0d0" strokeWidth="2"/>
+                                    {/* Counter edge shadow */}
+                                    <rect x="390" y="518" width="500" height="4" fill="#000000" opacity="0.1"/>
+
+                                    {/* Backsplash (below window) */}
+                                    <rect x="400" y="300" width="480" height="200" fill="#f0f0f0" stroke="#d0d0d0" strokeWidth="2"/>
+                                    {/* Subway tile pattern */}
+                                    {Array.from({length: 8}, (_, row) =>
+                                        Array.from({length: 10}, (_, col) => (
+                                            <rect
+                                                key={`tile-${row}-${col}`}
+                                                x={405 + col * 48 + (row % 2) * 24}
+                                                y={305 + row * 24}
+                                                width="46"
+                                                height="22"
+                                                fill="#ffffff"
+                                                stroke="#e0e0e0"
+                                                strokeWidth="1"
+                                            />
+                                        ))
+                                    )}
+
+                                    {/* Left sink */}
+                                    <ellipse cx="520" cy="510" rx="60" ry="20" fill="#e8e8e8" stroke="#b0b0b0" strokeWidth="2"/>
+                                    <ellipse cx="520" cy="508" rx="52" ry="16" fill="#f5f5f5"/>
+                                    <ellipse cx="520" cy="506" rx="44" ry="12" fill="#f8f8f8"/>
+                                    {/* Drain */}
+                                    <circle cx="520" cy="508" r="8" fill="#c0c0c0" stroke="#999" strokeWidth="1"/>
+
+                                    {/* Left faucet */}
+                                    <g>
+                                        <rect x="517" y="470" width="6" height="30" fill="#c0c0c0" stroke="#999" strokeWidth="1"/>
+                                        <ellipse cx="520" cy="465" rx="12" ry="6" fill="#d0d0d0" stroke="#aaa" strokeWidth="1"/>
+                                        <path d="M 510 470 Q 505 480 508 490" stroke="#c0c0c0" strokeWidth="5" fill="none"/>
+                                        <path d="M 530 470 Q 535 480 532 490" stroke="#c0c0c0" strokeWidth="5" fill="none"/>
+                                    </g>
+
+                                    {/* Right sink */}
+                                    <ellipse cx="760" cy="510" rx="60" ry="20" fill="#e8e8e8" stroke="#b0b0b0" strokeWidth="2"/>
+                                    <ellipse cx="760" cy="508" rx="52" ry="16" fill="#f5f5f5"/>
+                                    <ellipse cx="760" cy="506" rx="44" ry="12" fill="#f8f8f8"/>
+                                    {/* Drain */}
+                                    <circle cx="760" cy="508" r="8" fill="#c0c0c0" stroke="#999" strokeWidth="1"/>
+
+                                    {/* Right faucet */}
+                                    <g>
+                                        <rect x="757" y="470" width="6" height="30" fill="#c0c0c0" stroke="#999" strokeWidth="1"/>
+                                        <ellipse cx="760" cy="465" rx="12" ry="6" fill="#d0d0d0" stroke="#aaa" strokeWidth="1"/>
+                                        <path d="M 750 470 Q 745 480 748 490" stroke="#c0c0c0" strokeWidth="5" fill="none"/>
+                                        <path d="M 770 470 Q 775 480 772 490" stroke="#c0c0c0" strokeWidth="5" fill="none"/>
+                                    </g>
+
+                                    {/* Cabinet doors */}
+                                    <g>
+                                        <rect x="415" y="540" width="110" height="140" fill="#a88c60" stroke="#6d5839" strokeWidth="2"/>
+                                        <rect x="535" y="540" width="110" height="140" fill="#a88c60" stroke="#6d5839" strokeWidth="2"/>
+                                        <rect x="655" y="540" width="110" height="140" fill="#a88c60" stroke="#6d5839" strokeWidth="2"/>
+                                        <rect x="775" y="540" width="95" height="140" fill="#a88c60" stroke="#6d5839" strokeWidth="2"/>
+
+                                        {/* Door handles */}
+                                        <rect x="445" y="605" width="50" height="8" fill="#c0c0c0" stroke="#999" strokeWidth="1" rx="2"/>
+                                        <rect x="565" y="605" width="50" height="8" fill="#c0c0c0" stroke="#999" strokeWidth="1" rx="2"/>
+                                        <rect x="685" y="605" width="50" height="8" fill="#c0c0c0" stroke="#999" strokeWidth="1" rx="2"/>
+                                        <rect x="795" y="605" width="50" height="8" fill="#c0c0c0" stroke="#999" strokeWidth="1" rx="2"/>
+                                    </g>
+
+                                    {/* Mirrors on either side of window (NOT covering it) */}
+                                    <g>
+                                        {/* Left mirror */}
+                                        <rect x="400" y="100" width="140" height="180" fill="#e8f4f8" stroke="#999" strokeWidth="3"/>
+                                        <rect x="405" y="105" width="50" height="60" fill="#ffffff" opacity="0.4"/>
+
+                                        {/* Right mirror */}
+                                        <rect x="740" y="100" width="140" height="180" fill="#e8f4f8" stroke="#999" strokeWidth="3"/>
+                                        <rect x="745" y="105" width="50" height="60" fill="#ffffff" opacity="0.4"/>
+                                    </g>
+
+                                    {/* Decorative items on counter */}
+                                    <g>
+                                        {/* Soap dispenser */}
+                                        <rect x="580" y="505" width="20" height="35" fill="#ffffff" stroke="#d0d0d0" strokeWidth="1" rx="3"/>
+                                        <circle cx="590" cy="502" r="6" fill="#e0e0e0"/>
+
+                                        {/* Toothbrush holder */}
+                                        <rect x="700" y="508" width="25" height="30" fill="#90caf9" stroke="#64b5f6" strokeWidth="1" rx="2"/>
+
+                                        {/* Hand towel */}
+                                        <rect x="820" y="510" width="40" height="8" fill="#5a9fd4" stroke="#4a8ab8" strokeWidth="1" rx="2"/>
+                                    </g>
+                                </g>
+
+                                {/* Right side - Toilet */}
+                                <g>
+                                    {/* Toilet tank */}
+                                    <rect x="980" y="480" width="140" height="100" fill="#ffffff" stroke="#d0d0d0" strokeWidth="3" rx="5"/>
+                                    {/* Tank lid */}
+                                    <rect x="980" y="475" width="140" height="10" fill="#f0f0f0" stroke="#c0c0c0" strokeWidth="2" rx="3"/>
+                                    {/* Flush button */}
+                                    <circle cx="1050" cy="490" r="12" fill="#e0e0e0" stroke="#c0c0c0" strokeWidth="2"/>
+                                    <circle cx="1050" cy="490" r="8" fill="#f5f5f5"/>
+
+                                    {/* Toilet bowl */}
+                                    <ellipse cx="1050" cy="620" rx="80" ry="60" fill="#ffffff" stroke="#d0d0d0" strokeWidth="3"/>
+                                    <ellipse cx="1050" cy="610" rx="65" ry="48" fill="#f8f8f8" stroke="#e0e0e0" strokeWidth="2"/>
+                                    <ellipse cx="1050" cy="600" rx="50" ry="35" fill="#f0f0f0"/>
+
+                                    {/* Toilet seat */}
+                                    <ellipse cx="1050" cy="560" rx="75" ry="35" fill="#ffffff" stroke="#d0d0d0" strokeWidth="3"/>
+                                    <ellipse cx="1050" cy="560" rx="60" ry="25" fill="none" stroke="#e0e0e0" strokeWidth="2"/>
+
+                                    {/* Toilet paper holder */}
+                                    <rect x="920" y="520" width="15" height="80" fill="#c0c0c0" stroke="#999" strokeWidth="2"/>
+                                    <ellipse cx="927" cy="560" rx="35" ry="35" fill="#ffffff" stroke="#d0d0d0" strokeWidth="2"/>
+                                    {/* Paper texture */}
+                                    {Array.from({length: 8}, (_, i) => (
+                                        <line key={`tp-${i}`} x1="905" y1={540 + i * 5} x2="950" y2={540 + i * 5} stroke="#f5f5f5" strokeWidth="1"/>
+                                    ))}
+                                </g>
+
+                                {/* Ceiling with recessed lights */}
+                                <g>
+                                    {/* Light fixture above shower */}
+                                    <ellipse cx="200" cy="50" rx="40" ry="15" fill="#fffacd" opacity="0.8"/>
+                                    <ellipse cx="200" cy="48" rx="30" ry="10" fill="#ffffff" opacity="0.6"/>
+
+                                    {/* Light fixture above vanity */}
+                                    <ellipse cx="640" cy="45" rx="40" ry="15" fill="#fffacd" opacity="0.9"/>
+                                    <ellipse cx="640" cy="43" rx="30" ry="10" fill="#ffffff" opacity="0.7"/>
+
+                                    {/* Light fixture above toilet */}
+                                    <ellipse cx="1050" cy="50" rx="40" ry="15" fill="#fffacd" opacity="0.8"/>
+                                    <ellipse cx="1050" cy="48" rx="30" ry="10" fill="#ffffff" opacity="0.6"/>
+
+                                    {/* Light beams */}
+                                    <polygon points="200,65 150,500 250,500" fill="#fffacd" opacity="0.05"/>
+                                    <polygon points="640,60 560,500 720,500" fill="#fffacd" opacity="0.08"/>
+                                    <polygon points="1050,65 1000,500 1100,500" fill="#fffacd" opacity="0.05"/>
+                                </g>
+
+                                {/* Labels with elegant styling */}
+                                <g>
+                                    <rect x="140" y="730" width="120" height="40" fill="#ffffff" stroke="#333" strokeWidth="2" rx="5" opacity="0.95"/>
+                                    <text x="200" y="750" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#1976d2">Walk-in Shower</text>
+                                    <text x="200" y="765" textAnchor="middle" fontSize="11" fill="#666">Half-wall + Glass</text>
+
+                                    <rect x="580" y="730" width="120" height="40" fill="#ffffff" stroke="#333" strokeWidth="2" rx="5" opacity="0.95"/>
+                                    <text x="640" y="750" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#6d4c41">Double Vanity</text>
+                                    <text x="640" y="765" textAnchor="middle" fontSize="11" fill="#666">Window Above</text>
+
+                                    <rect x="990" y="730" width="120" height="40" fill="#ffffff" stroke="#333" strokeWidth="2" rx="5" opacity="0.95"/>
+                                    <text x="1050" y="750" textAnchor="middle" fontSize="14" fontWeight="bold" fill="#424242">Toilet Area</text>
+                                    <text x="1050" y="765" textAnchor="middle" fontSize="11" fill="#666">Right Wall</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="bg-slate-700 p-5 rounded-lg border border-slate-600">
+                                <h4 className="font-bold text-white mb-3 text-lg">Key Design Features</h4>
+                                <ul className="text-sm text-slate-200 space-y-2">
+                                    <li>✓ Window remains open above vanity backsplash</li>
+                                    <li>✓ Mirrors placed on SIDES of window</li>
+                                    <li>✓ Natural light floods the space</li>
+                                    <li>✓ Half-wall shower maintains openness</li>
+                                    <li>✓ Frameless glass maximizes light</li>
+                                </ul>
+                            </div>
+                            <div className="bg-slate-700 p-5 rounded-lg border border-slate-600">
+                                <h4 className="font-bold text-white mb-3 text-lg">Material Selections</h4>
+                                <ul className="text-sm text-slate-200 space-y-2">
+                                    <li>• Large format porcelain floor tiles (24"x24")</li>
+                                    <li>• Quartz countertop in white/light gray</li>
+                                    <li>• Medium-toned wood vanity cabinet</li>
+                                    <li>• Chrome or brushed nickel fixtures</li>
+                                    <li>• Subway tile backsplash</li>
+                                </ul>
+                            </div>
+                            <div className="bg-slate-700 p-5 rounded-lg border border-slate-600">
+                                <h4 className="font-bold text-white mb-3 text-lg">Mirror Options</h4>
+                                <ul className="text-sm text-slate-200 space-y-2">
+                                    <li>• Option 1: Two mirrors flanking window</li>
+                                    <li>• Option 2: One wide mirror below window</li>
+                                    <li>• Option 3: Medicine cabinets on sides</li>
+                                    <li>• Keeps window unobstructed</li>
+                                    <li>• Maximizes natural light benefit</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="mt-4 bg-blue-900 p-5 rounded-lg border-l-4 border-blue-400">
+                            <h4 className="font-bold text-white mb-2 text-lg">Important Design Note</h4>
+                            <p className="text-blue-100 text-sm leading-relaxed">
+                                The window placement is a key feature! Rather than blocking it with mirrors, we've positioned mirrors on either side of the window or below it.
+                                This preserves natural light, provides views, and creates a more open, airy feel. The window backsplash creates visual interest while
+                                keeping the space bright and welcoming.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
