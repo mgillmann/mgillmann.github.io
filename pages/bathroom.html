@@ -1,0 +1,269 @@
+import React from 'react';
+
+const BathroomFloorPlan = () => {
+// Scale: 1 inch = 4 pixels for display
+const scale = 4;
+
+// Room dimensions in inches
+const roomWidth = 134; // 11'2"
+const roomHeight = 77; // 6'5"
+
+// Scaled dimensions for SVG
+const svgWidth = roomWidth * scale;
+const svgHeight = roomHeight * scale;
+
+return (
+<div className="w-full max-w-4xl mx-auto p-6 bg-gray-50">
+    <div className="bg-white rounded-lg shadow-lg p-6">
+        <h2 className="text-2xl font-bold mb-2 text-gray-800">Bathroom Remodel Floor Plan</h2>
+        <p className="text-gray-600 mb-4">Room Size: 11'2" × 6'5" (77 sq ft) | Scale: 1" = 4px</p>
+
+        <div className="border-2 border-gray-300 rounded overflow-auto">
+            <svg width={svgWidth} height={svgHeight} className="bg-gray-100">
+                {/* Room outline */}
+                <rect x="0" y="0" width={svgWidth} height={svgHeight}
+                      fill="#f8f8f8" stroke="#333" strokeWidth="3"/>
+
+                {/* Grid lines for reference (every 12 inches / 1 foot) */}
+                {Array.from({length: Math.floor(roomWidth/12)}, (_, i) => (
+                <line key={`v${i}`} x1={(i+1)*12*scale} y1="0"
+                      x2={(i+1)*12*scale} y2={svgHeight}
+                      stroke="#ddd" strokeWidth="1" strokeDasharray="2,2"/>
+                ))}
+                {Array.from({length: Math.floor(roomHeight/12)}, (_, i) => (
+                <line key={`h${i}`} x1="0" y1={(i+1)*12*scale}
+                      x2={svgWidth} y2={(i+1)*12*scale}
+                      stroke="#ddd" strokeWidth="1" strokeDasharray="2,2"/>
+                ))}
+
+                {/* Window - top wall, centered */}
+                <rect x={(roomWidth/2 - 17)*scale} y="0" width={34*scale} height="6"
+                      fill="#87CEEB" stroke="#333" strokeWidth="2"/>
+                <text x={(roomWidth/2)*scale} y="20" textAnchor="middle" fontSize="12" fill="#333">
+                    WINDOW 34"
+                </text>
+
+                {/* Walk-in Shower - left wall with half wall and glass */}
+                {/* Position: Starting at x=3" from left wall, y=3" from top */}
+                <g>
+                    {/* Shower base */}
+                    <rect x={3*scale} y={3*scale} width={48*scale} height={36*scale}
+                          fill="#e3f2fd" stroke="#333" strokeWidth="2"/>
+
+                    {/* Half wall (knee wall) on left side - 36" high */}
+                    <rect x={3*scale} y={3*scale} width="8" height={36*scale}
+                          fill="#9e9e9e" stroke="#333" strokeWidth="2"/>
+
+                    {/* Half wall on entry side (right side of shower) */}
+                    <rect x={(3+48)*scale - 8} y={3*scale} width="8" height={18*scale}
+                          fill="#9e9e9e" stroke="#333" strokeWidth="2"/>
+
+                    {/* Glass panels (represented with lighter stroke) */}
+                    <line x1={(3+48)*scale} y1={(3+18)*scale} x2={(3+48)*scale} y2={(3+36)*scale}
+                          stroke="#64B5F6" strokeWidth="3" opacity="0.6"/>
+                    <line x1={(3+8)*scale} y1={3*scale} x2={(3+48)*scale-8} y2={3*scale}
+                          stroke="#64B5F6" strokeWidth="3" opacity="0.6"/>
+
+                    {/* Shower head */}
+                    <circle cx={(3+12)*scale} cy={(3+10)*scale} r="6" fill="#666" stroke="#333" strokeWidth="1"/>
+
+                    {/* Drain */}
+                    <circle cx={(3+24)*scale} cy={(3+24)*scale} r="4" fill="#333"/>
+
+                    <text x={(3+24)*scale} y={(3+20)*scale} textAnchor="middle" fontSize="13" fontWeight="bold" fill="#333">
+                        WALK-IN
+                    </text>
+                    <text x={(3+24)*scale} y={(3+30)*scale} textAnchor="middle" fontSize="13" fontWeight="bold" fill="#333">
+                        SHOWER
+                    </text>
+                    <text x={(3+24)*scale} y={(3+38)*scale} textAnchor="middle" fontSize="10" fill="#555">
+                        48" × 36"
+                    </text>
+                </g>
+
+                {/* Double Vanity - along window wall */}
+                {/* Position: Starting at x=56" from left, y=3" from top, 72" wide */}
+                <g>
+                    <rect x={56*scale} y={3*scale} width={72*scale} height={22*scale}
+                          fill="#d4a574" stroke="#333" strokeWidth="2"/>
+
+                    {/* Two sinks */}
+                    <ellipse cx={(56+18)*scale} cy={(3+11)*scale} rx="28" ry="20"
+                             fill="#fff" stroke="#333" strokeWidth="1.5"/>
+                    <ellipse cx={(56+54)*scale} cy={(3+11)*scale} rx="28" ry="20"
+                             fill="#fff" stroke="#333" strokeWidth="1.5"/>
+
+                    {/* Faucets */}
+                    <circle cx={(56+18)*scale} cy={(3+8)*scale} r="3" fill="#c0c0c0"/>
+                    <circle cx={(56+54)*scale} cy={(3+8)*scale} r="3" fill="#c0c0c0"/>
+
+                    <text x={(56+36)*scale} y={(3+31)*scale} textAnchor="middle" fontSize="13" fontWeight="bold" fill="#333">
+                        DOUBLE VANITY 72"
+                    </text>
+                </g>
+
+                {/* Toilet - right side wall, facing left into the room */}
+                {/* Position: Against right wall at x=134", center at y=50" */}
+                <g>
+                    {/* Toilet tank (against wall) */}
+                    <rect x={(roomWidth-4)*scale} y={42*scale} width="4" height={16*scale}
+                          fill="#fff" stroke="#333" strokeWidth="2" rx="1"/>
+                    {/* Toilet bowl (oval, extending left from wall) */}
+                    <ellipse cx={(roomWidth-16)*scale} cy={50*scale} rx="18" ry="14"
+                             fill="#fff" stroke="#333" strokeWidth="2"/>
+                    {/* Toilet seat */}
+                    <ellipse cx={(roomWidth-16)*scale} cy={50*scale} rx="14" ry="11"
+                             fill="none" stroke="#333" strokeWidth="1.5"/>
+
+                    <text x={(roomWidth-16)*scale} y={68*scale} textAnchor="middle" fontSize="12" fontWeight="bold" fill="#333">
+                        TOILET
+                    </text>
+                </g>
+
+                {/* Door - bottom left, 24" door swinging in */}
+                <g>
+                    {/* Door frame */}
+                    <rect x="0" y={(roomHeight - 32)*scale} width="4" height={32*scale}
+                          fill="#8B4513" stroke="#333" strokeWidth="2"/>
+                    {/* Door swing arc */}
+                    <path d={`M 4 ${(roomHeight - 32)*scale} Q ${32*scale} ${(roomHeight - 16)*scale} 4 ${roomHeight*scale}`}
+                          fill="none" stroke="#333" strokeWidth="2" strokeDasharray="3,3"/>
+                    <text x={18*scale} y={(roomHeight - 10)*scale} fontSize="11" fill="#333" fontWeight="bold">
+                        DOOR
+                    </text>
+                    <text x={18*scale} y={(roomHeight - 2)*scale} fontSize="10" fill="#555">
+                        32"
+                    </text>
+                </g>
+
+                {/* Traffic flow arrows */}
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4CAF50" />
+                    </marker>
+                </defs>
+                <path d={`M ${16*scale} ${(roomHeight-16)*scale} L ${16*scale} ${42*scale}`}
+                      stroke="#4CAF50" strokeWidth="2" fill="none"
+                      markerEnd="url(#arrowhead)" strokeDasharray="4,4" opacity="0.7"/>
+
+                {/* Plumbing access notation */}
+                <g>
+                    <circle cx={25*scale} cy={(roomHeight - 10)*scale} r="10"
+                            fill="none" stroke="#e91e63" strokeWidth="2" strokeDasharray="2,2"/>
+                    <text x={25*scale} y={(roomHeight - 6)*scale} textAnchor="middle" fontSize="11" fontWeight="bold" fill="#e91e63">
+                        P
+                    </text>
+                    <text x={25*scale} y={(roomHeight - 18)*scale} textAnchor="middle" fontSize="9" fill="#e91e63">
+                        Access
+                    </text>
+                </g>
+
+                {/* Clearance annotations */}
+                <text x={60*scale} y={65*scale} fontSize="9" fill="#666" fontStyle="italic">
+                    30" min clearance
+                </text>
+
+                {/* Dimension lines */}
+                {/* Width dimension */}
+                <line x1="10" y1={svgHeight + 20} x2={svgWidth - 10} y2={svgHeight + 20}
+                      stroke="#666" strokeWidth="1.5"/>
+                <line x1="10" y1={svgHeight + 15} x2="10" y2={svgHeight + 25}
+                      stroke="#666" strokeWidth="1.5"/>
+                <line x1={svgWidth - 10} y1={svgHeight + 15} x2={svgWidth - 10} y2={svgHeight + 25}
+                      stroke="#666" strokeWidth="1.5"/>
+                <text x={svgWidth/2} y={svgHeight + 35} textAnchor="middle" fontSize="12" fontWeight="bold" fill="#666">
+                    134" (11'-2")
+                </text>
+
+                {/* Height dimension */}
+                <line x1={svgWidth + 20} y1="10" x2={svgWidth + 20} y2={svgHeight - 10}
+                      stroke="#666" strokeWidth="1.5"/>
+                <line x1={svgWidth + 15} y1="10" x2={svgWidth + 25} y2="10"
+                      stroke="#666" strokeWidth="1.5"/>
+                <line x1={svgWidth + 15} y1={svgHeight - 10} x2={svgWidth + 25} y2={svgHeight - 10}
+                      stroke="#666" strokeWidth="1.5"/>
+                <text x={svgWidth + 45} y={svgHeight/2} textAnchor="middle" fontSize="12" fontWeight="bold" fill="#666" transform={`rotate(90 ${svgWidth + 45} ${svgHeight/2})`}>
+                77" (6'-5")
+                </text>
+            </svg>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-blue-900">Walk-in Shower</h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Location:</strong> Left wall, 3" from edges</li>
+                    <li>• <strong>Dimensions:</strong> 48" wide × 36" deep</li>
+                    <li>• <strong>Half wall:</strong> Full height on left side, partial on entry</li>
+                    <li>• <strong>Glass:</strong> Frameless panels above half walls</li>
+                    <li>• <strong>Entry:</strong> 30" wide opening on right side</li>
+                    <li>• <strong>Features:</strong> Wall-mounted shower head, center drain</li>
+                </ul>
+            </div>
+
+            <div className="bg-amber-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-amber-900">Double Vanity</h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Location:</strong> Center-right of window wall</li>
+                    <li>• <strong>Dimensions:</strong> 72" wide × 22" deep</li>
+                    <li>• <strong>Sinks:</strong> Dual undermount, 18" from each end</li>
+                    <li>• <strong>Window:</strong> Centered between sinks for symmetry</li>
+                    <li>• <strong>Storage:</strong> Drawers below, medicine cabinets above</li>
+                    <li>• <strong>Clearance:</strong> 30" in front for easy access</li>
+                </ul>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-gray-900">Toilet Placement</h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Location:</strong> Right wall, lower section</li>
+                    <li>• <strong>Position:</strong> 21" from right wall (center line)</li>
+                    <li>• <strong>Side clearance:</strong> 15" minimum from center to wall</li>
+                    <li>• <strong>Front clearance:</strong> 30" minimum to vanity</li>
+                    <li>• <strong>Privacy:</strong> Partially screened by vanity placement</li>
+                    <li>• <strong>Access:</strong> Easy reach from door entrance</li>
+                </ul>
+            </div>
+
+            <div className="bg-pink-50 p-4 rounded-lg">
+                <h3 className="font-bold text-lg mb-2 text-pink-900">Plumbing & Access</h3>
+                <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• <strong>Main access:</strong> Floor opening near door (marked P)</li>
+                    <li>• <strong>Wet wall:</strong> Left side wall for shower plumbing</li>
+                    <li>• <strong>Toilet drain:</strong> Right side, accessible from below</li>
+                    <li>• <strong>Vanity supply:</strong> Run through floor from below</li>
+                    <li>• <strong>Access points:</strong> Both hallway and bedroom side</li>
+                    <li>• <strong>Recommendation:</strong> PEX for easier routing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div className="mt-6 bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+            <h3 className="font-bold text-lg mb-2 text-green-900">Layout Benefits</h3>
+            <ul className="text-sm text-gray-700 space-y-2">
+                <li><strong>No Overlaps:</strong> All fixtures properly spaced with code-compliant clearances</li>
+                <li><strong>Traffic Flow:</strong> Clear path from door past toilet to vanity and shower</li>
+                <li><strong>Natural Light:</strong> Window illuminates vanity area, ambient light reaches shower</li>
+                <li><strong>Privacy:</strong> Toilet positioned with visual separation from vanity</li>
+                <li><strong>Efficiency:</strong> Shower stays in original tub location - minimal plumbing relocation</li>
+                <li><strong>Modern Feel:</strong> Half-wall shower creates open, spa-like atmosphere</li>
+            </ul>
+        </div>
+
+        <div className="mt-4 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <h3 className="font-bold text-lg mb-2 text-yellow-900">Code Compliance Checklist</h3>
+            <ul className="text-sm text-gray-700 space-y-1">
+                <li>✓ Toilet: 15" from center to side walls, 30" clearance in front</li>
+                <li>✓ Shower: 30" × 30" minimum interior dimension (48" × 36" exceeds)</li>
+                <li>✓ Vanity: 30" clearance in front for accessibility</li>
+                <li>✓ Door swing: Clears all fixtures, 32" opening width</li>
+                <li>✓ GFCI outlets required near water sources</li>
+                <li>✓ Ventilation: 80+ CFM exhaust fan or operable window</li>
+            </ul>
+        </div>
+    </div>
+</div>
+);
+};
+
+export default BathroomFloorPlan;
